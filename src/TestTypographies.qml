@@ -7,9 +7,11 @@ Page {
     title: "Test Typographies"
 
     ScrollView {
-        anchors.fill: parent
+        anchors.centerIn: parent
         
-        ColumnLayout {
+        ColumnLayout { 
+            anchors.fill: parent
+
             Label.Headline1 {
                 text: "Headline1"
             }

@@ -7,8 +7,8 @@ import "./theme"
 
 ApplicationWindow {
     visible: true
-    width: 640
-    height: 480
+    width: 1280
+    height: 720
     title: stackLayout.children[stackLayout.currentIndex].title
 
     Theme {
@@ -47,9 +47,7 @@ ApplicationWindow {
     }
 
     footer: Qameleon.ActionsButtonBox {
-        height: 60
-
-        horizontalPadding: 30
+        padding: 16
 
         ActionGroup {
 
