@@ -14,11 +14,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find the required Qt5 packages
 find_package(Qt5 REQUIRED COMPONENTS Quick QuickControls2)
 
+# Add the subdirectory for the qameleon_hot_reload library
+add_subdirectory(libs/qameleon/src/hotreload)
+
 # Add the QML resources to the executable
 add_executable(QameleonGUI src/main.cpp src/qml.qrc)
 
 # Link to Qt's Quick and Controls libraries
 target_link_libraries(QameleonGUI
+    PRIVATE qameleon_hot_reload
     PRIVATE Qt5::Quick Qt5::QuickControls2
 )
 

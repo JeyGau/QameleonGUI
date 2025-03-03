@@ -42,15 +42,6 @@ Page {
                 color: Material.color(Material.Green)
             }
 
-            Qameleon.Label {
-                text: "Body1 bold"
-                style {
-                    typography: Scales.Body1 {
-                        font.weight: Font.Bold
-                    }
-                }
-            }
-
         }
 
     }

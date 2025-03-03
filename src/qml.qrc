@@ -2,9 +2,10 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>theme/Theme.qml</file>
-        <file>TestTypographies.qml</file>
-        <file>TestStyledTypography.qml</file>
-        <file>TestButton.qml</file>
-        <file>TestLabel.qml</file>
+        <file>views/TestTypographies.qml</file>
+        <file>views/TestStyledTypography.qml</file>
+        <file>views/TestButton.qml</file>
+        <file>views/TestLabel.qml</file>
+        <file>views/ViewFactory.qml</file>
     </qresource>
 </RCC>

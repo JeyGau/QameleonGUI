@@ -3,13 +3,14 @@ import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import qameleon.controls 1.0 as Qameleon
 import qameleon.controls.theming 1.0 as Qameleon
+import qameleon.hotreload 1.0 as Qameleon
+import "./views"
 import "./theme"
 
 ApplicationWindow {
     visible: true
     width: 1280
     height: 720
-    title: stackLayout.children[stackLayout.currentIndex].title
 
     Theme {
         id: mainTheme
@@ -19,31 +20,9 @@ ApplicationWindow {
         Qameleon.ThemeManager.theme = mainTheme;
     }
 
-    StackLayout {
-        id: stackLayout
-
+    Qameleon.ApplicationStackView {
         anchors.fill: parent
-        clip: true
-
-        TestTypographies {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
-
-        TestStyledTypography {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
-
-        TestButton {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
-
-        TestLabel {
-            Layout.fillHeight: true
-            Layout.fillWidth: true
-        }
+        viewFactory: ViewFactory {}
     }
 
     footer: Qameleon.ActionsButtonBox {
@@ -53,15 +32,11 @@ ApplicationWindow {
 
             Qameleon.Action {
                 text: "Previous"
-                enabled: stackLayout.currentIndex > 0
-                onTriggered: stackLayout.currentIndex = stackLayout.currentIndex - 1
                 role: Qameleon.ActionsButtonBox.Role.Secondary
             }
 
             Qameleon.Action {
                 text: "Next"
-                enabled: stackLayout.currentIndex < stackLayout.count - 1
-                onTriggered: stackLayout.currentIndex = stackLayout.currentIndex + 1
                 role: Qameleon.ActionsButtonBox.Role.Primary
             }
 
