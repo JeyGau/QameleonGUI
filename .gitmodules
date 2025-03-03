@@ -1,3 +1,6 @@
 [submodule "libs/qameleon"]
 	path = libs/qameleon
 	url = https://github.com/JeyGau/qameleon.git
+[submodule "libs/hotreload"]
+	path = libs/hotreload
+	url = git@github.com:JeyGau/hotreload.git
