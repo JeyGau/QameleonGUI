@@ -30,7 +30,8 @@
                 "eamodio.gitlens",
                 "GitHub.copilot",
                 "jock.svg",
-                "naumovs.color-highlight"
+                "naumovs.color-highlight",
+                "gruntfuggly.triggertaskonsave"
             ]
         }
     },

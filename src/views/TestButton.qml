@@ -11,6 +11,7 @@ Page {
         anchors.centerIn: parent
 
         ColumnLayout {
+            anchors.fill: parent
 
             Qameleon.Button {
                 Layout.alignment: Qt.AlignHCenter

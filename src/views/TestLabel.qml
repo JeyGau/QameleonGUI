@@ -12,6 +12,7 @@ Page {
         anchors.centerIn: parent
 
         ColumnLayout {
+            anchors.fill: parent
 
             Qameleon.Label {
                 text: "Default style"

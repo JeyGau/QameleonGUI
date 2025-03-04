@@ -1,5 +1,18 @@
 {
     "cSpell.words": [
-        "qameleon"
-    ]
+        "hotreload",
+        "qameleon",
+        "qmldir"
+    ],
+    "triggerTaskOnSave.tasks": {
+        "Build and Install qameleon": [
+            "/workspaces/QameleonGUI/libs/qameleon/src/hotreload/*",
+            "/workspaces/QameleonGUI/libs/qameleon/src/controls/*",
+            "/workspaces/QameleonGUI/libs/qameleon/src/controls/styles/*",
+            "/workspaces/QameleonGUI/libs/qameleon/src/controls/styles/private/*",
+            "/workspaces/QameleonGUI/libs/qameleon/src/controls/theming/*",
+            "/workspaces/QameleonGUI/libs/qameleon/src/controls/typographies/*",
+            "/workspaces/QameleonGUI/libs/qameleon/src/controls/typographies/scales/*",
+        ],
+    }
 }
