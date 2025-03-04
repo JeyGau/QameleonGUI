@@ -7,7 +7,9 @@ import qameleon.hotreload 1.0 as Qameleon
 import "./views"
 import "./theme"
 
-ApplicationWindow {
+Qameleon.ApplicationWindow {
+    id: window
+    
     visible: true
     width: 1280
     height: 720
@@ -20,10 +22,7 @@ ApplicationWindow {
         Qameleon.ThemeManager.theme = mainTheme;
     }
 
-    Qameleon.ApplicationStackView {
-        anchors.fill: parent
-        viewFactory: ViewFactory {}
-    }
+    viewFactory: ViewFactory {}
 
     footer: Qameleon.ActionsButtonBox {
         padding: 16
