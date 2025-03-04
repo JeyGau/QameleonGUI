@@ -14,20 +14,27 @@ Qameleon.ViewFactory {
     mainView: ViewFactory.Views.TestButton
 
     Qameleon.ViewFactory.View {
-        enum_: ViewFactory.Views.TestTypographies
-        component_: TestTypographies {}
+        name: ViewFactory.Views.TestTypographies
+
+        TestTypographies {}
     }
+
     Qameleon.ViewFactory.View {
-        enum_: ViewFactory.Views.TestStyledTypography
-        component_: TestStyledTypography {}
+        name: ViewFactory.Views.TestStyledTypography
+
+        TestStyledTypography {}
     }
+
     Qameleon.ViewFactory.View {
-        enum_: ViewFactory.Views.TestButton
-        component_: TestButton {}
+        name: ViewFactory.Views.TestButton
+
+        TestButton {}
     }
+
     Qameleon.ViewFactory.View {
-        enum_: ViewFactory.Views.TestLabel
-        component_: TestLabel {}
+        name: ViewFactory.Views.TestLabel
+        
+        TestLabel {}
     }
     
 }
