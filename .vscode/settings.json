@@ -4,6 +4,11 @@
         "qameleon",
         "qmldir"
     ],
+    "qmlFormat.command": "/usr/lib/qt5/bin/qmlformat",
+    "qmlFormat.extraArguments": [
+        "--normalize"
+    ],
+    "editor.formatOnSave": true,
     "triggerTaskOnSave.tasks": {
         "Build and Install qameleon": [
             "/workspaces/QameleonGUI/libs/qameleon/src/hotreload/*",
