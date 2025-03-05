@@ -1,15 +1,16 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import qameleon.controls 1.0 as Qameleon
 import qameleon.controls.typographies 1.0 as Label
 
-Page {
+Qameleon.Page {
     title: "Test Typographies"
 
     ScrollView {
         anchors.centerIn: parent
-        
-        ColumnLayout { 
+
+        ColumnLayout {
             anchors.fill: parent
 
             Label.Headline1 {
@@ -20,19 +21,19 @@ Page {
                 text: "Headline2"
             }
 
-            Label.Headline3 {           
+            Label.Headline3 {
                 text: "Headline3"
             }
 
-            Label.Headline4 {            
+            Label.Headline4 {
                 text: "Headline4"
             }
 
-            Label.Headline5 {           
+            Label.Headline5 {
                 text: "Headline5"
             }
 
-            Label.Headline6 {            
+            Label.Headline6 {
                 text: "Headline6"
             }
 
@@ -63,4 +64,5 @@ Page {
         }
 
     }
+
 }

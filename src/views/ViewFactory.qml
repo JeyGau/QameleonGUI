@@ -3,7 +3,7 @@ import qameleon.hotreload 1.0 as Qameleon
 
 Qameleon.ViewFactory {
     id: root
-    
+
     enum Views {
         TestTypographies,
         TestStyledTypography,
@@ -11,31 +11,38 @@ Qameleon.ViewFactory {
         TestLabel
     }
 
-    mainView: ViewFactory.Views.TestButton
+    mainView: Enums.Views.TestButton
 
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestTypographies
+        name: Enums.Views.TestTypographies
 
-        TestTypographies {}
+        TestTypographies {
+        }
+
     }
 
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestStyledTypography
+        name: Enums.Views.TestStyledTypography
 
-        TestStyledTypography {}
+        TestStyledTypography {
+        }
+
     }
 
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestButton
+        name: Enums.Views.TestButton
 
-        TestButton {}
+        TestButton {
+        }
+
     }
 
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestLabel
-        
-        TestLabel {}
+        name: Enums.Views.TestLabel
+
+        TestLabel {
+        }
+
     }
-    
+
 }
-
