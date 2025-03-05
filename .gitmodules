@@ -1,3 +1,3 @@
 [submodule "libs/qameleon"]
-	path = libs/qameleon
-	url = https://github.com/JeyGau/qameleon.git
+path = libs/qameleon
+url = https://github.com/JeyGau/qameleon.git
