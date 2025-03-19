@@ -1,9 +1,9 @@
 import QtQuick 2.15
-import qameleon.hotreload 1.0 as Qameleon
+import org.qameleon.hotreload 1.0 as Qameleon
 
 Qameleon.ViewFactory {
     id: root
-    
+
     enum Views {
         TestTypographies,
         TestStyledTypography,
@@ -11,31 +11,40 @@ Qameleon.ViewFactory {
         TestLabel
     }
 
-    mainView: ViewFactory.Views.TestButton
-
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestTypographies
+        key: ViewFactory.Views.TestTypographies
+        name: "Test Typographies"
 
-        TestTypographies {}
+        TestTypographies {
+        }
+
     }
 
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestStyledTypography
+        key: ViewFactory.Views.TestStyledTypography
+        name: "Test Styled Typography"
 
-        TestStyledTypography {}
+        TestStyledTypography {
+        }
+
     }
 
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestButton
+        key: ViewFactory.Views.TestButton
+        name: "Test Button"
 
-        TestButton {}
+        TestButton {
+        }
+
     }
 
     Qameleon.ViewFactory.View {
-        name: ViewFactory.Views.TestLabel
-        
-        TestLabel {}
+        key: ViewFactory.Views.TestLabel
+        name: "Test Label"
+
+        TestLabel {
+        }
+
     }
-    
+
 }
-

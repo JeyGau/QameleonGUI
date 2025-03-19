@@ -1,46 +1,48 @@
+import "./theme"
+import "./views"
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
-import qameleon.controls 1.0 as Qameleon
-import qameleon.controls.theming 1.0 as Qameleon
-import qameleon.hotreload 1.0 as Qameleon
-import "./views"
-import "./theme"
+import org.qameleon.controls.theming 1.0
+import org.qameleon.hotreload 1.0 as HotReload
 
-Qameleon.ApplicationWindow {
+HotReload.ApplicationWindow {
     id: window
-    
+
     visible: true
     width: 1280
     height: 720
+    Component.onCompleted: {
+        ThemeManager.theme = mainTheme;
+    }
 
     Theme {
         id: mainTheme
     }
 
-    Component.onCompleted: {
-        Qameleon.ThemeManager.theme = mainTheme;
-    }
+    header: TabBar {
+        onCurrentIndexChanged: {
+            if (!viewFactory)
+                return ;
 
-    viewFactory: ViewFactory {}
+            if (!viewFactory.children[currentIndex])
+                return ;
 
-    footer: Qameleon.ActionsButtonBox {
-        padding: 16
+            applicationStackView.replace(viewFactory.children[currentIndex].key);
+        }
 
-        ActionGroup {
+        Repeater {
+            model: viewFactory.children
 
-            Qameleon.Action {
-                text: "Previous"
-                role: Qameleon.ActionsButtonBox.Role.Secondary
-            }
-
-            Qameleon.Action {
-                text: "Next"
-                role: Qameleon.ActionsButtonBox.Role.Primary
+            TabButton {
+                text: model.name
             }
 
         }
 
     }
-    
+
+    viewFactory: ViewFactory {
+    }
+
 }

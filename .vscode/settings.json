@@ -2,12 +2,10 @@
     "cSpell.words": [
         "hotreload",
         "qameleon",
-        "qmldir"
+        "qmldir",
+        "qresource"
     ],
     "qmlFormat.command": "/usr/lib/qt5/bin/qmlformat",
-    "qmlFormat.extraArguments": [
-        "--normalize"
-    ],
     "editor.formatOnSave": true,
     "triggerTaskOnSave.tasks": {
         "Build and Install qameleon": [
