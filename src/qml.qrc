@@ -7,5 +7,7 @@
         <file>views/TestButton.qml</file>
         <file>views/TestLabel.qml</file>
         <file>views/ViewFactory.qml</file>
+        <file>views/Enums.qml</file>
+        <file>views/qmldir</file>
     </qresource>
 </RCC>
