@@ -1,8 +1,7 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Controls.Material 2.15
-import QtQuick.Layouts 1.15
-import org.qameleon.controls 1.0 as Qameleon
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
+import org.qameleon.controls as Qameleon
 
 Page {
     title: "Test Button"
@@ -32,9 +31,7 @@ Page {
                             border {
                                 color: Material.color(Material.Red, Material.Shade900)
                             }
-
                         }
-
                     }
 
                     hovered {
@@ -46,9 +43,7 @@ Page {
                             border {
                                 color: Material.color(Material.Red, Material.Shade900)
                             }
-
                         }
-
                     }
 
                     pressed {
@@ -60,17 +55,10 @@ Page {
                             border {
                                 color: Material.color(Material.Red, Material.Shade200)
                             }
-
                         }
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }

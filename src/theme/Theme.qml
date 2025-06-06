@@ -1,5 +1,5 @@
-import QtQuick.Controls.Material 2.15
-import org.qameleon.controls.theming 1.0
+import QtQuick.Controls.Material
+import org.qameleon.controls.theming
 
 AbstractTheme {
     id: theme
@@ -22,5 +22,4 @@ AbstractTheme {
         textColor: Material.color(Material.Green, Material.Shade100)
         borderColor: Material.color(Material.Green, Material.Shade200)
     }
-
 }

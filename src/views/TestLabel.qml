@@ -1,9 +1,7 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Controls.Material 2.15
-import QtQuick.Layouts 1.15
-import org.qameleon.controls 1.0 as Qameleon
-import org.qameleon.controls.styles 1.0
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
+import org.qameleon.controls as Qameleon
 
 Page {
     title: "Test Label"
@@ -34,15 +32,9 @@ Page {
                         border {
                             color: Material.color(Material.Green)
                         }
-
                     }
-
                 }
-
             }
-
         }
-
     }
-
 }

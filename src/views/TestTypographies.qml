@@ -1,8 +1,7 @@
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import org.qameleon.controls.theming 1.0
-import org.qameleon.controls.typographies 1.0 as Label
+import QtQuick.Controls
+import QtQuick.Layouts
+import org.qameleon.controls.theming
+import org.qameleon.controls.typographies as Typo
 
 Page {
     title: "Test Typographies"
@@ -16,13 +15,14 @@ Page {
             RowLayout {
                 Layout.alignment: Qt.AlignHCenter
 
-                Label.Body1 {
+                Typo.Body1 {
                     text: "Select Font Family"
                 }
 
                 ComboBox {
                     Layout.alignment: Qt.AlignHCenter
                     model: Qt.fontFamilies()
+                    displayText: ThemeManager.theme.fontFamily
                     currentIndex: Qt.fontFamilies().indexOf(ThemeManager.theme.fontFamily)
                     onCurrentIndexChanged: {
                         ThemeManager.theme.fontFamily = model[currentIndex];
@@ -30,51 +30,51 @@ Page {
                 }
             }
 
-            Label.Headline1 {
+            Typo.Headline1 {
                 text: "Headline1"
             }
 
-            Label.Headline2 {
+            Typo.Headline2 {
                 text: "Headline2"
             }
 
-            Label.Headline3 {
+            Typo.Headline3 {
                 text: "Headline3"
             }
 
-            Label.Headline4 {
+            Typo.Headline4 {
                 text: "Headline4"
             }
 
-            Label.Headline5 {
+            Typo.Headline5 {
                 text: "Headline5"
             }
 
-            Label.Headline6 {
+            Typo.Headline6 {
                 text: "Headline6"
             }
 
-            Label.Subtitle1 {
+            Typo.Subtitle1 {
                 text: "Subtitle1"
             }
 
-            Label.Subtitle2 {
+            Typo.Subtitle2 {
                 text: "Subtitle2"
             }
 
-            Label.Body1 {
+            Typo.Body1 {
                 text: "Body1"
             }
 
-            Label.Body2 {
+            Typo.Body2 {
                 text: "Body2"
             }
 
-            Label.Caption {
+            Typo.Caption {
                 text: "Caption"
             }
 
-            Label.Overline {
+            Typo.Overline {
                 text: "Overline"
             }
         }

@@ -26,13 +26,13 @@
 				"psioniq.psi-header",
 				"SonarSource.sonarlint-vscode",
 				"be5invis.toml",
-				"delgan.qml-format",
 				"eamodio.gitlens",
 				"GitHub.copilot",
 				"jock.svg",
 				"naumovs.color-highlight",
 				"gruntfuggly.triggertaskonsave",
-				"xaver.clang-format"
+				"xaver.clang-format",
+				"TheQtCompany.qt"
 			]
 		}
 	},
@@ -45,6 +45,10 @@
 		"ghcr.io/devcontainers/features/python:1": {},
 		"ghcr.io/gvatsal60/dev-container-features/sonarlint:1": {}
 	},
+	"remoteEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"XDG_SESSION_TYPE": "${localEnv:XDG_SESSION_TYPE}"
+	},
 	"runArgs": [
 		"--env",
 		"DISPLAY=${env:DISPLAY}",
@@ -52,5 +56,6 @@
 		"/tmp/.X11-unix:/tmp/.X11-unix",
 		"--device",
 		"/dev/dri"
-	]
+	],
+	"postStartCommand": "xhost +local:docker || true"
 }

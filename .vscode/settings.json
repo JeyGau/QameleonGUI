@@ -9,10 +9,9 @@
         "qmldir",
         "qresource"
     ],
-    "qmlFormat.command": "/usr/lib/qt6/bin/qmlformat",
     "editor.formatOnSave": true,
     "triggerTaskOnSave.tasks": {
-        "Build and Install qameleon": [
+        "Build & Install qameleon": [
             "/workspaces/QameleonGUI/libs/qameleon/src/hotreload/*",
             "/workspaces/QameleonGUI/libs/qameleon/src/controls/*",
             "/workspaces/QameleonGUI/libs/qameleon/src/controls/styles/*",

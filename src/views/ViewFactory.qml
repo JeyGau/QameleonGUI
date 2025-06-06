@@ -1,5 +1,4 @@
-import QtQuick 2.15
-import org.qameleon.hotreload 1.0 as Qameleon
+import org.qameleon.hotreload as Qameleon
 
 Qameleon.ViewFactory {
     id: root
@@ -15,36 +14,27 @@ Qameleon.ViewFactory {
         key: ViewFactory.Views.TestTypographies
         name: "Test Typographies"
 
-        TestTypographies {
-        }
-
+        TestTypographies {}
     }
 
     Qameleon.ViewFactory.View {
         key: ViewFactory.Views.TestStyledTypography
         name: "Test Styled Typography"
 
-        TestStyledTypography {
-        }
-
+        TestStyledTypography {}
     }
 
     Qameleon.ViewFactory.View {
         key: ViewFactory.Views.TestButton
         name: "Test Button"
 
-        TestButton {
-        }
-
+        TestButton {}
     }
 
     Qameleon.ViewFactory.View {
         key: ViewFactory.Views.TestLabel
         name: "Test Label"
 
-        TestLabel {
-        }
-
+        TestLabel {}
     }
-
 }

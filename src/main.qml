@@ -1,10 +1,9 @@
 import "./theme"
 import "./views"
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtQuick.Layouts 1.15
-import org.qameleon.controls.theming 1.0
-import org.qameleon.hotreload 1.0 as HotReload
+import QtQuick
+import QtQuick.Controls
+import org.qameleon.controls.theming
+import org.qameleon.hotreload as HotReload
 
 HotReload.ApplicationWindow {
     id: window
@@ -21,28 +20,25 @@ HotReload.ApplicationWindow {
     }
 
     header: TabBar {
+        id: tabs
         onCurrentIndexChanged: {
-            if (!viewFactory)
-                return ;
+            if (!window.viewFactory)
+                return;
 
-            if (!viewFactory.children[currentIndex])
-                return ;
+            if (!window.viewFactory.children[tabs.currentIndex])
+                return;
 
-            applicationStackView.replace(viewFactory.children[currentIndex].key);
+            window.applicationStackView.replace(window.viewFactory.children[tabs.currentIndex].key);
         }
 
         Repeater {
-            model: viewFactory.children
+            model: window.viewFactory.children
 
-            TabButton {
+            delegate: TabButton {
                 text: model.name
             }
-
         }
-
     }
 
-    viewFactory: ViewFactory {
-    }
-
+    viewFactory: ViewFactory {}
 }
