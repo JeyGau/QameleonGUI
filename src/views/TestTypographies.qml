@@ -23,11 +23,11 @@ Page {
                 ComboBox {
                     Layout.alignment: Qt.AlignHCenter
                     model: Qt.fontFamilies()
+                    currentIndex: Qt.fontFamilies().indexOf(ThemeManager.theme.fontFamily)
                     onCurrentIndexChanged: {
                         ThemeManager.theme.fontFamily = model[currentIndex];
                     }
                 }
-
             }
 
             Label.Headline1 {
@@ -77,9 +77,6 @@ Page {
             Label.Overline {
                 text: "Overline"
             }
-
         }
-
     }
-
 }

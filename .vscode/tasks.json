@@ -2,51 +2,176 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Build and Install qameleon",
+			"label": "Build & Install qameleon",
 			"type": "shell",
-			"command": "cd libs/qameleon && mkdir -p build install && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../install && make -j$(nproc) && make install",
-			"group": {
-				"kind": "build",
-				"isDefault": true
+			"command": "bash",
+			"args": [
+				"-c",
+				"cd libs/qameleon && mkdir -p build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Debug && make -j$(nproc) && sudo make install"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
 			},
 			"problemMatcher": [
 				"$gcc"
 			],
-			"detail": "Builds and installs the qameleon dependency"
+			"detail": "Build and install qameleon library to /usr/local"
 		},
 		{
-			"label": "Build QameleonGui with pre-installed lib",
+			"label": "Build QameleonGUI",
 			"type": "shell",
-			"command": "mkdir -p build && cd build && cmake .. -DCMAKE_PREFIX_PATH=${workspaceFolder}/libs/qameleon/install -Dqameleon_DIR=${workspaceFolder}/libs/qameleon/install/lib/cmake/qameleon && make -j$(nproc)",
+			"command": "bash",
+			"args": [
+				"-c",
+				"mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Debug && make -j$(nproc)"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
 			"problemMatcher": [
 				"$gcc"
 			],
-			"detail": "Builds the QameleonGui project using the pre-installed qameleon library"
+			"dependsOn": "Build & Install qameleon",
+			"detail": "Build QameleonGUI application (depends on qameleon)"
 		},
 		{
-			"label": "Build all",
+			"label": "Run QameleonGUI",
 			"type": "shell",
-			"command": "cd libs/qameleon && mkdir -p build install && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../install && make -j$(nproc) && make install && cd ../../.. && mkdir -p build && cd build && cmake .. -DCMAKE_PREFIX_PATH=${workspaceFolder}/libs/qameleon/install -Dqameleon_DIR=${workspaceFolder}/libs/qameleon/install/lib/cmake/qameleon && make -j$(nproc)",
+			"command": "bash",
+			"args": [
+				"-c",
+				"cd build && QML_IMPORT_PATH=/usr/local/qml:/usr/lib/x86_64-linux-gnu/qt6/qml ./QameleonGUI"
+			],
+			"group": "test",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": true,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"dependsOn": "Build QameleonGUI",
+			"detail": "Run QameleonGUI application with proper QML import path"
+		},
+		{
+			"label": "Clean qameleon",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-c",
+				"cd libs/qameleon && rm -rf build && sudo rm -rf /usr/local/lib/cmake/qameleon /usr/local/qml/org/qameleon"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Clean qameleon build directory and remove installed files"
+		},
+		{
+			"label": "Clean QameleonGUI",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-c",
+				"rm -rf build"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Clean QameleonGUI build directory"
+		},
+		{
+			"label": "Rebuild All",
+			"type": "shell",
+			"command": "echo",
+			"args": [
+				"Rebuilding everything..."
+			],
+			"group": "build",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Clean qameleon",
+				"Clean QameleonGUI",
+				"Build & Install qameleon",
+				"Build QameleonGUI"
+			],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "Clean and rebuild both qameleon and QameleonGUI"
+		},
+		{
+			"label": "Debug Build qameleon",
+			"type": "shell",
+			"command": "bash",
+			"args": [
+				"-c",
+				"cd libs/qameleon && mkdir -p build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && make -j$(nproc) && sudo make install"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
 			"problemMatcher": [
 				"$gcc"
 			],
-			"detail": "Builds the QameleonGui project and the qameleon dependency"
+			"detail": "Build qameleon in Debug mode with compile commands"
 		},
 		{
-			"label": "Run QameleonGui",
+			"label": "Release Build qameleon",
 			"type": "shell",
-			"command": "cd build && ./QameleonGUI",
-			"problemMatcher": [],
-			"detail": "Runs QameleonGui"
-		},
-		{
-			"label": "Build & run",
-			"type": "shell",
-			"command": "cd libs/qameleon && mkdir -p build install && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../install && make -j$(nproc) && make install && cd ../../.. && mkdir -p build && cd build && cmake .. -DCMAKE_PREFIX_PATH=${workspaceFolder}/libs/qameleon/install -Dqameleon_DIR=${workspaceFolder}/libs/qameleon/install/lib/cmake/qameleon && make -j$(nproc) && ./QameleonGUI",
+			"command": "bash",
+			"args": [
+				"-c",
+				"cd libs/qameleon && mkdir -p build && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release && make -j$(nproc) && sudo make install"
+			],
+			"group": "build",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
 			"problemMatcher": [
 				"$gcc"
 			],
-			"detail": "Builds and runs QameleonGui"
+			"detail": "Build qameleon in Release mode"
 		}
 	]
 }

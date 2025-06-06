@@ -9,7 +9,7 @@
         "qmldir",
         "qresource"
     ],
-    "qmlFormat.command": "/usr/lib/qt5/bin/qmlformat",
+    "qmlFormat.command": "/usr/lib/qt6/bin/qmlformat",
     "editor.formatOnSave": true,
     "triggerTaskOnSave.tasks": {
         "Build and Install qameleon": [
