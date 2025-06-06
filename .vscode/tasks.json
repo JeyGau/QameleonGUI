@@ -1,44 +1,52 @@
 {
 	"version": "2.0.0",
 	"tasks": [
-        {
-            "label": "Build and Install qameleon",
-            "type": "shell",
-            "command": "cd libs/qameleon && mkdir -p build && cd build && cmake .. && make && sudo make install",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": ["$gcc"],
-            "detail": "Builds and installs the qameleon dependency"
-        },
 		{
-			"label": "Build QameleonGui",
+			"label": "Build and Install qameleon",
 			"type": "shell",
-			"command": "mkdir -p build && cd build && cmake .. && make",
-			"problemMatcher": ["$gcc"],
-			"detail": "Builds the QameleonGui project"
+			"command": "cd libs/qameleon && mkdir -p build install && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../install && make -j$(nproc) && make install",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Builds and installs the qameleon dependency"
+		},
+		{
+			"label": "Build QameleonGui with pre-installed lib",
+			"type": "shell",
+			"command": "mkdir -p build && cd build && cmake .. -DCMAKE_PREFIX_PATH=${workspaceFolder}/libs/qameleon/install -Dqameleon_DIR=${workspaceFolder}/libs/qameleon/install/lib/cmake/qameleon && make -j$(nproc)",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Builds the QameleonGui project using the pre-installed qameleon library"
 		},
 		{
 			"label": "Build all",
 			"type": "shell",
-			"command": "cd libs/qameleon && mkdir -p build && cd build && cmake .. && make && sudo make install && cd ../../.. && mkdir -p build && cd build && cmake .. && make",
-			"problemMatcher": ["$gcc"],
+			"command": "cd libs/qameleon && mkdir -p build install && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../install && make -j$(nproc) && make install && cd ../../.. && mkdir -p build && cd build && cmake .. -DCMAKE_PREFIX_PATH=${workspaceFolder}/libs/qameleon/install -Dqameleon_DIR=${workspaceFolder}/libs/qameleon/install/lib/cmake/qameleon && make -j$(nproc)",
+			"problemMatcher": [
+				"$gcc"
+			],
 			"detail": "Builds the QameleonGui project and the qameleon dependency"
 		},
 		{
 			"label": "Run QameleonGui",
 			"type": "shell",
 			"command": "cd build && ./QameleonGUI",
-			"problemMatcher": ["$gcc"],
-			"detail": "Runs the tests"
+			"problemMatcher": [],
+			"detail": "Runs QameleonGui"
 		},
 		{
 			"label": "Build & run",
 			"type": "shell",
-			"command": "cd libs/qameleon && mkdir -p build && cd build && cmake .. && make && sudo make install && cd ../../.. && mkdir -p build && cd build && cmake .. && make && ./QameleonGUI",
-			"problemMatcher": ["$gcc"],
-			"detail": "Builds and run QameleonGui"
+			"command": "cd libs/qameleon && mkdir -p build install && cd build && cmake .. -DCMAKE_INSTALL_PREFIX=../install && make -j$(nproc) && make install && cd ../../.. && mkdir -p build && cd build && cmake .. -DCMAKE_PREFIX_PATH=${workspaceFolder}/libs/qameleon/install -Dqameleon_DIR=${workspaceFolder}/libs/qameleon/install/lib/cmake/qameleon && make -j$(nproc) && ./QameleonGUI",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"detail": "Builds and runs QameleonGui"
 		}
 	]
 }

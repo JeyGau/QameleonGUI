@@ -1,4 +1,8 @@
 {
+    "C/C++ Include Guard.Comment Style": "Line",
+    "C/C++ Include Guard.Macro Type": "Filename",
+    "C/C++ Include Guard.Spaces After Endif": 2,
+    "C/C++ Include Guard.Suffix": "_HPP",
     "cSpell.words": [
         "hotreload",
         "qameleon",
@@ -17,5 +21,6 @@
             "/workspaces/QameleonGUI/libs/qameleon/src/controls/typographies/*",
             "/workspaces/QameleonGUI/libs/qameleon/src/controls/typographies/scales/*",
         ],
-    }
+    },
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json"
 }

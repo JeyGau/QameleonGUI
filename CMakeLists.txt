@@ -10,22 +10,21 @@ set(CMAKE_AUTORCC ON)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(qameleon_DIR "${CMAKE_SOURCE_DIR}/libs/qameleon/cmake")
 
-# Find the required Qt5 packages
-find_package(Qt5 REQUIRED COMPONENTS Quick QuickControls2)
+message(STATUS "qameleon_DIR: ${qameleon_DIR}")
 
-# Add the subdirectory for the qameleon_hot_reload library
-add_subdirectory(libs/qameleon/src/hotreload)
+# Find the required Qt6 packages
+find_package(Qt6 REQUIRED COMPONENTS Quick QuickControls2)
+find_package(qameleon REQUIRED COMPONENTS controls hotreload)
 
 # Add the QML resources to the executable
 add_executable(QameleonGUI src/main.cpp src/qml.qrc)
 
-# Link to Qt's Quick and Controls libraries
+# Link to QtQuick and Controls libraries
 target_link_libraries(QameleonGUI
-    PRIVATE qameleon_hot_reload
-    PRIVATE Qt5::Quick Qt5::QuickControls2
+    PRIVATE Qt6::Quick Qt6::QuickControls2
+    PRIVATE qameleon::controls qameleon::hotreload
 )
 
-# Add the QML import path to find the qameleon module
-set(QML_IMPORT_PATH "${CMAKE_INSTALL_PREFIX}/lib/qt/qml")
-
+install(TARGETS QameleonGUI)

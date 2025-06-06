@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
     QObject::connect(&watcher, &qameleon::hot_reload::QmlFilesWatcher::qmlFileChanged, 
         &hotReloader, &qameleon::hot_reload::HotReloader::reload);
 
+    qDebug() << "Import paths:" << engine.importPathList();
 
     engine.load(QUrl(QStringLiteral("/workspaces/QameleonGUI/src/main.qml")));
 
